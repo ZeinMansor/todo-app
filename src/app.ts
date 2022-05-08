@@ -41,6 +41,9 @@ initPassport(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+/**
+ * @GET checkif the server is online
+ */
 app.get("/ping", (req: Request, res: Response) => {
   res.send("pong!~")
 });
@@ -65,5 +68,7 @@ app.put("/todo/update-todo", extractJWT, todoController.updateTodo)
 app.delete("/todo/delete-todo/:todoId", extractJWT, todoController.deletTodo);
 app.get("/todo/get-todo/:todoId", extractJWT, todoController.getTodoById);
 
+app.get("/todo/get-all-todos/:id", extractJWT, todoController.getAllTodos);
+app.get("/todo/get-all-todos/", extractJWT, todoController.getAllTodos);
 
 export default app;

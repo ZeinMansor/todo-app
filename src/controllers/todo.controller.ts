@@ -172,3 +172,32 @@ export const getTodoById = async (req: Request, res: Response) => {
     res.status(200).json({ err: false, todo: existingTodo })
   })
 }
+
+
+/**
+ * @GET /todo/get-all-todos/:id
+ */
+
+ export const getAllTodos = async (req: Request, res: Response) => {
+
+  const userId = req.params.id;
+
+  if (!userId) {
+    res.status(300).json({ err: true, message: "Please spceify a userid" });
+      return ;
+  }
+
+  Todo.find({ owner: userId }, (err: any, userTodos: TodoDocument) => {
+    if(err) {
+      res.status(400).json({ err: true, message: err });
+      return ;
+    }
+
+    if (!userTodos) {
+      res.status(200).json({ err: true, message: "There is no todos for this user" });
+      return;
+    }
+
+    res.status(200).json({ err: false, todo: userTodos })
+  })
+}
