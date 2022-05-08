@@ -91,3 +91,6 @@
 
 ### 6 - DELETE todo by id
 - Send a `DELETE` request to `/todo/delete-todo/:todoId`
+
+### 7 - GET all user todos by his id
+- Send a `DELETE` request to `/todo/get-all/:id`
