@@ -25,10 +25,9 @@
 - response body will be :
 ```json
 {
-    "err": false,      // if there is no error
+    "err": false,      
     "message": "The error description if there is any",
     "user": {
-        // A user object that contains his info
     },
     "token": "jwt token"
 }
@@ -47,10 +46,11 @@
 - Also response body will be :
 ```json
 {
-    "err": false,      // if there is no error
+    "err": false,      
     "message": "The error description if there is any",
     "user": {
-        // A user object that contains his info
+        "username": "",
+
     },
     "token": "jwt token"
 }
@@ -66,9 +66,8 @@
     "notes": [
         "Note one",
         "Note two"
-        // at least one note is required
     ],
-    "attachement": // optional file 
+    "attachement": "file"
 }
 ```
 
@@ -81,7 +80,6 @@
     "notes": [
         "Note one",
         "Note two"
-        // at least one note is required
     ],
 }
 ```
