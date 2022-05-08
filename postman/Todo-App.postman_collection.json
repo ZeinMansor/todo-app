@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "0ffaf25e-8ffd-4072-936d-515289c16aa2",
+		"name": "Todo-App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"zein\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzc3ZmUyNzVlYmQ3MmRkZjRlZmQwZiIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJhdXRoIjpbImVkaXQtcHJvZmlsZSJdLCJpYXQiOjE2NTIwMDMzMTcsImV4cCI6MTY1MjAxOTg0MTM1NjE3LCJpc3MiOiJ1bmlmeS1zb2x1dGlvbnMtdG9kby1hcHAifQ.RxS3DG-3vc5xCYETAopNvosnKOkeCGpTloZ1BaFpjws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Finish Second Group of my tasks on monday\",\r\n    \"notes\": [\r\n        \"task3 sql training\",\r\n        \"task4 arrays challenge\" \r\n    ],\r\n    \"duration\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/todo/new-todo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"todo",
+						"new-todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzc3ZmUyNzVlYmQ3MmRkZjRlZmQwZiIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJhdXRoIjpbImVkaXQtcHJvZmlsZSJdLCJpYXQiOjE2NTIwMDMzMTcsImV4cCI6MTY1MjAxOTg0MTM1NjE3LCJpc3MiOiJ1bmlmeS1zb2x1dGlvbnMtdG9kby1hcHAifQ.RxS3DG-3vc5xCYETAopNvosnKOkeCGpTloZ1BaFpjws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"todoId\": \"62779e30d0094fea8309eb59\",\r\n    \"title\": \"Finish some of my tasks\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/todo/update-todo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"todo",
+						"update-todo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzc3ZmUyNzVlYmQ3MmRkZjRlZmQwZiIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJhdXRoIjpbImVkaXQtcHJvZmlsZSJdLCJpYXQiOjE2NTIwMDMzMTcsImV4cCI6MTY1MjAxOTg0MTM1NjE3LCJpc3MiOiJ1bmlmeS1zb2x1dGlvbnMtdG9kby1hcHAifQ.RxS3DG-3vc5xCYETAopNvosnKOkeCGpTloZ1BaFpjws",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/todo/delete-todo/62779e30d0094fea8309eb59",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"todo",
+						"delete-todo",
+						"62779e30d0094fea8309eb59"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get todo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/todo/get-todo/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"todo",
+						"get-todo",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/todo/get-all-todos/62777fe275ebd72ddf4efd0f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"todo",
+						"get-all-todos",
+						"62777fe275ebd72ddf4efd0f"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNzc3ZmUyNzVlYmQ3MmRkZjRlZmQwZiIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJhdXRoIjpbImVkaXQtcHJvZmlsZSJdLCJpYXQiOjE2NTIwMDcyOTAsImV4cCI6MTY1MjAyMzgxNDM5NTkwLCJpc3MiOiJ1bmlmeS1zb2x1dGlvbnMtdG9kby1hcHAifQ.RJkEl3zcV1j20fSYkIHTZo74OEO3vDmh6aDZswnejb8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
