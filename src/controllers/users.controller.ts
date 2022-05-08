@@ -74,6 +74,7 @@ export const postRegister = async (req: Request, res: Response) => {
 
 
 export const postLogin = async (req: Request, res: Response, next: NextFunction) => {
+  
   await check("email", "Please enter a valid email email address").isEmail().notEmpty().run(req);
   await check("password", "Password must be at least 8 characters long").isLength({ min: 8 }).run(req);
   await body("email").normalizeEmail({ gmail_remove_dots: false }).run(req);

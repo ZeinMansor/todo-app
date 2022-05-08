@@ -8,9 +8,13 @@ import passport from "passport";
 import MongoStore from "connect-mongo";
 import compression from "compression";
 import { MONGODB_URI, SESSION_SECRET } from "./util/secret";
-import * as userController from "./controllers/users";
 import { initPassport } from "./config/passport";
+import { extractJWT } from "./util/jwt";
 // import { upload } from "./util/multerConfig";
+
+
+import * as userController from "./controllers/users.controller";
+import * as todoController from "./controllers/todo.controller";
 
 const app = express();
 dotenv.config({ path: ".env" });
@@ -48,5 +52,18 @@ app.get("/ping", (req: Request, res: Response) => {
 
 app.post("/auth/register", userController.postRegister);
 app.post("/auth/login", userController.postLogin);
+
+
+
+
+/**
+ * @TODO Api
+ */
+
+app.post("/todo/new-todo", extractJWT, todoController.postNewTodo);
+app.put("/todo/update-todo", extractJWT, todoController.updateTodo)
+app.delete("/todo/delete-todo/:todoId", extractJWT, todoController.deletTodo);
+app.get("/todo/get-todo/:todoId", extractJWT, todoController.getTodoById);
+
 
 export default app;
